@@ -1,4 +1,4 @@
-# powerGridRobotsAutomation
+# Power Grid Robots Automation project
 This project aims to automate the Robots expansion for Power Grid, to assist players with using that expansion in their own games of Power Grid.
 
 This is my first project, so it is very much a learning experience - all comments welcome. 
