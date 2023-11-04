@@ -1,6 +1,3 @@
-import mysql.connector
-from mysql.connector import Error
-
 from databaseConnection import create_db_connection, read_query
 
 class PowerPlant:

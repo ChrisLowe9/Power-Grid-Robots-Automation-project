@@ -7,7 +7,7 @@
 
 class Robot:
 
-    def __init__(self, money, name=None, powerPlants=None, resources=None, cities=None):
+    def __init__(self, money, name=None, powerPlants=[], resources=None, cities=None):
         self.money = money
         self.name = name
         self.powerPlants = powerPlants
@@ -15,9 +15,25 @@ class Robot:
         self.cities = cities
 
     def __str__(self):
-        return f"{self.name} has: Money = {self.money}"
+        return f"{self.name} has: Money = {self.money} and these powerplants: {self.powerPlants}"
 
     @classmethod
     def setRobotName(cls, self):
         name = input("What should we call this robot?")
         self.name = name
+
+    @classmethod
+    def deductRobotMoney(cls, self, amount):
+        self.money = self.money - amount
+
+    @classmethod
+    def addRobotMoney(cls, self, amount):
+        self.money = self.money + amount
+
+
+    @classmethod
+    def addPowerplant(cls, self, powerPlant):
+        self.powerPlants.append(powerPlant)
+        if len(self.powerPlants) > 3:
+            minPowerPlant = min(self.powerPlants)
+            self.powerPlants.remove(minPowerPlant)

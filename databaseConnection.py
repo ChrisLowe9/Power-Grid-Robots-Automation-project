@@ -1,13 +1,14 @@
-import mysql.connector
-from mysql.connector import Error
+import pyodbc
+from pyodbc import Error
 
 def create_db_connection(host_name, user_name, user_password, db_name):
     connection = None
     try:
-        connection = mysql.connector.connect(
+        connection = pyodbc.connect(
+            driver= "MySQL ODBC 8.2 ANSI Driver",
             host=host_name,
             user=user_name,
-            passwd=user_password,
+            password=user_password,
             database=db_name
         )
         print("MySQL Database connection successful")
