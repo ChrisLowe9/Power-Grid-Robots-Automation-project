@@ -17,13 +17,25 @@ def create_db_connection(host_name, user_name, user_password, db_name):
 
     return connection
 
-def read_query(connection, query):
+def read_query(connection, query, param=None):
+    # The optional param arg is set as 'None' by default, which I hoped meant
+    # that it wouldn't do anything. But even set as 'None', the database query doesn't
+    # like it. So I have an if / else so that if the user doesn't specify a param, then
+    # we do the cursor.execute without it, and I don't need to worry.
+
     cursor = connection.cursor()
-    result = None
-    try:
-        cursor.execute(query)
-        result = cursor.fetchall()
-        return result
-    except Error as err:
-        print(f"Error: '{err}'")
+    if param == None:
+        try:
+            cursor.execute(query)
+            result = cursor.fetchall()
+            return result
+        except Error as err:
+            print(f"Error: '{err}'")
+    else:
+        try:
+            cursor.execute(query, param)
+            result = cursor.fetchall()
+            return result
+        except Error as err:
+            print(f"Error: '{err}'")
 
