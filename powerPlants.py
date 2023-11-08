@@ -1,7 +1,7 @@
 from databaseConnection import create_db_connection, read_query
 
 class PowerPlant:
-    def __init__(self, cost, type, resource, resource2=None, powerCost=None, citiesPowered=None):
+    def __init__(self, cost, type, resource=None, resource2=None, powerCost=None, citiesPowered=None):
         self.cost = cost
         self.type = type
         self.resource = resource
@@ -37,10 +37,16 @@ class PowerPlant:
 
         return power_plants
 
+    # @classmethod
+    # def identifyResourcesNeeded(cls, PowerPlantCost):
+
+
+
     @classmethod
-    def updatePowerPlantMarket(cls, user_name, user_password, PowerPlantCost):
-        # This method needs a list of costs for the power plants in the market, so that it can then recreate the
-        # power plant market from the entries in the power plant deck database. In the read-query, it joins the
+    def updateRobotPowerPlants(cls, user_name, user_password, PowerPlantCost):
+
+        # This method needs a list of costs for the power plants that the robot owns, so that it can then get those
+        # details from the entries in the power plant deck database. In the read-query, it joins the
         # integers into a string that MySQL will recognise.
         power_plants = []
 
