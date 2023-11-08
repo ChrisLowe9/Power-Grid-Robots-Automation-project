@@ -7,7 +7,7 @@
 
 class Robot:
 
-    def __init__(self, money, name=None, powerPlants=[], resources=None, cities=None):
+    def __init__(self, money, name=None, powerPlants=[], resources={'coal': 0, 'oil': 0, 'garbage': 0, 'uranium': 0}, cities=None):
         self.money = money
         self.name = name
         self.powerPlants = powerPlants
@@ -37,3 +37,15 @@ class Robot:
         if len(self.powerPlants) > 3:
             minPowerPlant = min(self.powerPlants)
             self.powerPlants.remove(minPowerPlant)
+
+    @classmethod
+    def addResources(cls, self, shoppingBasket):
+        resources = ['coal', 'oil', 'garbage', 'uranium']
+        for resource in resources:
+            self.resources[resource] += shoppingBasket[resource]
+
+    @classmethod
+    def removeResources(cls, self, burntResources):
+        resources = ['coal', 'oil', 'garbage', 'uranium']
+        for resource in resources:
+            self.resources[resource] -= burntResources[resource]
